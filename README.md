@@ -1,6 +1,6 @@
-# Surulere Teens Debate Championship (STDC) Website
+# Surulere Teens Debate & STEM Championship (STDSC) Website
 
-Public-facing website and private admin dashboard for the Surulere Teens Debate Championship.
+Public-facing website and private admin dashboard for the **Surulere Teens Debate & STEM Championship (STDSC)** — uniting competitive debate, STEM Quiz & Olympiad rounds, an applied STEM Innovation & Project Showcase, and the Young Leaders Network & STEM Labs.
 
 ## Stack
 
@@ -22,17 +22,19 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Project structure
 
 ```
+public/
+  images/              # Sourced editorial photography for Debate & STEM tracks
 src/
   app/                 # App Router pages
-    page.tsx           # Home
-    format/            # Championship format
-    schools/           # Information for schools
-    sponsors/          # Sponsors & partners
-    young-leaders/     # Young Leaders Network
-    policies/          # Safeguarding & privacy summaries
-    contact/           # Contact form (demo)
+    page.tsx           # Home (Debate, STEM Olympiad, Innovation Showcase & YLN overview)
+    format/            # Debate & STEM Championship format
+    schools/           # Information for secondary schools
+    sponsors/          # Sponsors & institutional partners
+    young-leaders/     # Young Leaders Network & STEM Labs
+    policies/          # Safeguarding, lab safety & privacy summaries
+    contact/           # Accessible contact form (demo)
     admin/             # Private admin shell (no real data yet)
-  components/          # Shared UI
+  components/          # Shared UI (Header, Footer, Button)
   lib/                 # Utilities
 docs/                  # Project documentation (proposal, roadmap, policies…)
 ```
@@ -66,4 +68,3 @@ See the [`docs/`](./docs/) folder for:
 ## Licence
 
 Private project — all rights reserved by the organising body (to be confirmed).
-# STDSC
