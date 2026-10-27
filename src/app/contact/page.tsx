@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, ShieldAlert, CheckCircle2, School, Handshake, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -77,96 +77,92 @@ export default function ContactPage() {
 
   return (
     <div>
-      {/* Page Hero */}
-      <section className="hero-surface relative overflow-hidden text-white">
-        <div className="subtle-grid-pattern absolute inset-0 opacity-60 pointer-events-none" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
+      {/* Editorial Hero */}
+      <section className="hero-surface relative overflow-hidden border-b border-white/15 text-white">
+        <div className="subtle-grid-pattern pointer-events-none absolute inset-0 opacity-60" />
+        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
-              Connect With Us
-            </p>
-            <h1 className="section-heading mt-2 font-extrabold tracking-tight text-white">
+            <h1 className="hero-heading font-bold text-white">
               Contact the STDSC Organising Team
             </h1>
-            <p className="prose-measure mt-4 text-base leading-relaxed text-slate-200 sm:text-lg">
-              Use the enquiry form below for school expressions of interest (Debate, STEM Olympiad,
-              or Innovation Showcase), corporate sponsorship, or Young Leaders Network &amp; STEM
-              Labs questions.
+            <p className="prose-measure mt-5 text-base leading-relaxed text-slate-200 sm:text-lg">
+              Use the enquiry form below for school expressions of interest across Debate, the STEM
+              Olympiad, or the Innovation Showcase, as well as corporate sponsorship and Young
+              Leaders Network enquiries.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-18">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-12">
-          {/* Left Column: Enquiry Pathways */}
+          {/* Left Column: Architectural Pathways Ledger */}
           <div className="space-y-6 lg:col-span-5">
             <div>
-              <h2 className="text-xl font-bold text-slate-900">Enquiry Pathways</h2>
+              <p className="editorial-kicker text-[var(--primary)]">
+                § 02 / ENQUIRY ROUTING
+              </p>
+              <h2 className="sub-heading mt-2 font-bold text-slate-900">
+                Directing your enquiry
+              </h2>
               <p className="mt-2 text-sm text-[var(--muted)]">
-                Select the relevant topic in the form so our team can direct your enquiry to the
-                appropriate coordinator.
+                Select the relevant category in the form so our team can assign your message to the
+                appropriate track coordinator.
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white">
               {[
                 {
-                  icon: School,
-                  title: "Secondary Schools",
+                  code: "DESK-01",
+                  title: "Secondary School Delegations",
                   desc: "Register interest for Debate teams, STEM Olympiad squads, and Innovation Showcase projects.",
                 },
                 {
-                  icon: Handshake,
+                  code: "DESK-02",
                   title: "Sponsors & Institutional Partners",
-                  desc: "Request the Sponsor Package outline, discuss STEM lab grants, or propose named awards.",
+                  desc: "Request the Sponsor Package outline, discuss STEM lab grants, or propose named category awards.",
                 },
                 {
-                  icon: Cpu,
+                  code: "DESK-03",
                   title: "Young Leaders & STEM Mentors",
-                  desc: "Enquire about hosting a coding/robotics workshop, adjudicating debates, or judging STEM projects.",
+                  desc: "Enquire about hosting a coding or robotics workshop, adjudicating debates, or judging STEM projects.",
                 },
               ].map((pathway) => (
-                <div
-                  key={pathway.title}
-                  className="flex items-start gap-3.5 rounded-2xl border border-slate-200 bg-white p-4 shadow-xs"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--secondary)] text-[var(--primary)]">
-                    <pathway.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">{pathway.title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-[var(--muted)]">
-                      {pathway.desc}
-                    </p>
-                  </div>
+                <div key={pathway.code} className="p-5">
+                  <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
+                    {pathway.code}
+                  </span>
+                  <h3 className="mt-1.5 text-sm font-bold text-slate-900">{pathway.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-[var(--muted)]">
+                    {pathway.desc}
+                  </p>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-[var(--secondary-warm)] p-5 text-xs text-slate-700 space-y-2">
-              <div className="flex items-center gap-2 font-bold text-slate-900">
-                <MapPin className="h-4 w-4 text-[var(--primary)]" />
-                <span>Location &amp; Contact Status</span>
-              </div>
-              <p>
+            <div className="rounded-md border border-[var(--border)] bg-[var(--secondary)] p-5 text-xs leading-relaxed text-slate-700">
+              <strong className="font-mono-tech block uppercase text-[var(--primary)]">
+                JURISDICTION &amp; PLACEHOLDER DISCLOSURE
+              </strong>
+              <p className="mt-1.5">
                 Surulere Local Government Area, Lagos, Nigeria. Official email addresses, phone
-                numbers, and physical venue address are placeholders until formally announced by the
-                organising committee.
+                numbers, and physical venue address are marked as placeholders until formally
+                announced by the organising committee.
               </p>
             </div>
           </div>
 
           {/* Right Column: Accessible Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8">
+            <div className="rounded-md border border-[var(--border)] bg-white p-6 sm:p-10">
               {submitted ? (
-                <div className="rounded-xl border border-emerald-200 bg-emerald-50/80 p-6 text-emerald-950">
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="h-6 w-6 text-emerald-700" />
-                    <h2 className="text-lg font-bold">Thank you for your enquiry</h2>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed">
+                <div className="rounded-md border border-emerald-300 bg-emerald-50/70 p-6 text-emerald-950">
+                  <span className="font-mono-tech text-xs font-bold uppercase text-emerald-800">
+                    STATUS / RECORDED IN DEMO MODE
+                  </span>
+                  <h2 className="sub-heading mt-2 font-bold">Thank you for your enquiry</h2>
+                  <p className="mt-2.5 text-sm leading-relaxed">
                     Your message has been recorded in demo mode. Once the production messaging
                     service is connected, the STDSC organising team will respond via the email
                     address you provided.
@@ -197,7 +193,7 @@ export default function ContactPage() {
                       autoComplete="name"
                       aria-describedby="name-hint"
                       aria-errormessage="name-error"
-                      className="form-control mt-1.5 w-full rounded-lg border border-[var(--border)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                      className="form-control mt-1.5 w-full rounded-md border border-[var(--border-strong)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                     />
                     <div id="name-error" className="error-msg">
                       <span aria-hidden="true">❌</span> Please enter your full name (at least 2
@@ -220,7 +216,7 @@ export default function ContactPage() {
                       autoComplete="email"
                       aria-describedby="email-hint"
                       aria-errormessage="email-error"
-                      className="form-control mt-1.5 w-full rounded-lg border border-[var(--border)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                      className="form-control mt-1.5 w-full rounded-md border border-[var(--border-strong)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                     />
                     <div id="email-error" className="error-msg">
                       <span aria-hidden="true">❌</span> Please enter a valid email address.
@@ -235,11 +231,8 @@ export default function ContactPage() {
                       >
                         School or Organisation
                       </label>
-                      <span
-                        id="org-hint"
-                        className="mt-0.5 block text-xs text-[var(--muted)]"
-                      >
-                        Optional — e.g. Secondary School or Company
+                      <span id="org-hint" className="mt-0.5 block text-xs text-[var(--muted)]">
+                        Optional (e.g. Secondary School or Company)
                       </span>
                       <input
                         id="organisation"
@@ -247,35 +240,29 @@ export default function ContactPage() {
                         type="text"
                         autoComplete="organization"
                         aria-describedby="org-hint"
-                        className="form-control mt-1.5 w-full rounded-lg border border-[var(--border)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                        className="form-control mt-1.5 w-full rounded-md border border-[var(--border-strong)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                       />
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="topic"
-                        className="block text-sm font-semibold text-slate-900"
-                      >
-                        Enquiry Topic
+                      <label htmlFor="topic" className="block text-sm font-semibold text-slate-900">
+                        Enquiry Category
                       </label>
-                      <span
-                        id="topic-hint"
-                        className="mt-0.5 block text-xs text-[var(--muted)]"
-                      >
+                      <span id="topic-hint" className="mt-0.5 block text-xs text-[var(--muted)]">
                         Choose the primary area of interest
                       </span>
                       <select
                         id="topic"
                         name="topic"
                         aria-describedby="topic-hint"
-                        className="form-control mt-1.5 w-full rounded-lg border border-[var(--border)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                        className="form-control mt-1.5 w-full rounded-md border border-[var(--border-strong)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                       >
                         <option value="school-all">
-                          School Interest — Debate &amp; STEM Tracks
+                          School Interest: Debate &amp; STEM Tracks
                         </option>
-                        <option value="school-debate">School Interest — Debate Track Only</option>
+                        <option value="school-debate">School Interest: Debate Track Only</option>
                         <option value="school-stem">
-                          School Interest — STEM Olympiad / Showcase
+                          School Interest: STEM Olympiad / Showcase
                         </option>
                         <option value="sponsor">Sponsorship &amp; Institutional Partnership</option>
                         <option value="yln">Young Leaders Network &amp; STEM Labs</option>
@@ -301,7 +288,7 @@ export default function ContactPage() {
                       rows={4}
                       aria-describedby="message-hint"
                       aria-errormessage="message-error"
-                      className="form-control mt-1.5 w-full rounded-lg border border-[var(--border)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                      className="form-control mt-1.5 w-full rounded-md border border-[var(--border-strong)] bg-white px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                     />
                     <div id="message-error" className="error-msg">
                       <span aria-hidden="true">❌</span> Please enter a brief message (at least 10
@@ -309,18 +296,18 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-2.5 rounded-xl border border-amber-200 bg-amber-50/70 p-3.5 text-xs text-amber-950">
-                    <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
-                    <p>
-                      <strong>Safeguarding Notice:</strong> Do not submit personal information about
-                      individual students (such as student names, dates of birth, or contact
-                      details) through this public enquiry form.
-                    </p>
+                  <div className="rounded-md border border-[var(--border)] bg-[var(--secondary)] p-4 text-xs text-slate-800">
+                    <strong className="font-mono-tech uppercase text-[var(--primary)]">
+                      SAFEGUARDING NOTICE:
+                    </strong>{" "}
+                    Do not submit personal information about individual students (such as student
+                    names, dates of birth, or personal contact details) through this public enquiry
+                    form.
                   </div>
 
                   <Button type="submit" size="lg" className="w-full sm:w-auto">
-                    <Mail className="h-4 w-4" />
-                    Send Enquiry
+                    Submit Enquiry
+                    <ArrowRight className="h-4 w-4" />
                   </Button>
                 </form>
               )}

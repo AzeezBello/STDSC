@@ -2,169 +2,474 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Menu, X, Award, Atom, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/format", label: "Debate & STEM Format" },
-  { href: "/schools", label: "For Schools" },
-  { href: "/sponsors", label: "Sponsors" },
-  { href: "/young-leaders", label: "Young Leaders & Labs" },
-  { href: "/policies", label: "Policies" },
-  { href: "/contact", label: "Contact" },
+type MegaMenuKey = "championship" | "participate" | null;
+
+const championshipItems = [
+  {
+    code: "TRK-01",
+    title: "Debate & Tech Policy",
+    description: "Parliamentary debates on civic, economic, and science/AI policy motions.",
+    href: "/format#debate",
+  },
+  {
+    code: "TRK-02",
+    title: "STEM Quiz & Olympiad",
+    description: "Analytical qualifiers and live buzzer finals across 5 STEM disciplines.",
+    href: "/format#olympiad",
+  },
+  {
+    code: "TRK-03",
+    title: "STEM Innovation Showcase",
+    description: "Student-built robotics, software, and renewable energy prototypes.",
+    href: "/format#showcase",
+  },
+  {
+    code: "GOV-04",
+    title: "Adjudication & Rules",
+    description: "Scoring rubrics, eligibility criteria, and independent judging panels.",
+    href: "/format#governance",
+  },
+];
+
+const participateItems = [
+  {
+    code: "SCH-01",
+    title: "For Secondary Schools",
+    description: "How school coordinators nominate Debate, Olympiad, and Showcase squads.",
+    href: "/schools",
+  },
+  {
+    code: "YLN-02",
+    title: "Young Leaders & STEM Labs",
+    description: "Year-round fellowship, coding/robotics bootcamps, and mentorship circles.",
+    href: "/young-leaders",
+  },
+  {
+    code: "SPN-03",
+    title: "Sponsors & Partners",
+    description: "Institutional patronage tiers, school STEM kit grants, and named awards.",
+    href: "/sponsors",
+  },
+  {
+    code: "POL-04",
+    title: "Policies & Safeguarding",
+    description: "Child protection, student data privacy, and prototype lab safety rules.",
+    href: "/policies",
+  },
 ];
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeMega, setActiveMega] = useState<MegaMenuKey>(null);
+  const [mobileSection, setMobileSection] = useState<MegaMenuKey>("championship");
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Close menus on route change
+  useEffect(() => {
+    setActiveMega(null);
+    setMobileOpen(false);
+  }, [pathname]);
+
+  // Close mega menu on outside click or Escape key
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setActiveMega(null);
+        setMobileOpen(false);
+      }
+    }
+    function handleClickOutside(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setActiveMega(null);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const isChampionshipActive = pathname?.startsWith("/format");
+  const isParticipateActive =
+    pathname?.startsWith("/schools") ||
+    pathname?.startsWith("/young-leaders") ||
+    pathname?.startsWith("/sponsors") ||
+    pathname?.startsWith("/policies");
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
-      {/* Top institutional bar */}
-      <div className="border-b border-slate-100 bg-[#0a192f] text-xs text-slate-300">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-1.5 sm:px-6">
-          <div className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
-            <span className="font-medium text-white">Surulere, Lagos</span>
-            <span className="hidden text-slate-400 sm:inline">
-              • Competitive Debate, STEM Olympiad &amp; Innovation Showcase
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/policies#safeguarding"
-              className="inline-flex items-center gap-1 text-slate-300 transition-colors hover:text-[var(--accent)]"
-            >
-              <ShieldCheck className="h-3.5 w-3.5 text-[var(--accent)]" />
-              <span>Safeguarding First</span>
-            </Link>
-            <Link
-              href="/admin"
-              className="text-slate-400 transition-colors hover:text-white"
-            >
-              Admin Portal
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main navigation */}
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header
+      ref={headerRef}
+      onMouseLeave={() => setActiveMega(null)}
+      className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-[#faf8f5]/95 backdrop-blur-md"
+    >
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+        {/* Compact Brand Lockup */}
         <Link
           href="/"
-          className="group flex items-center gap-3 text-[var(--primary)] focus-visible:outline-none"
+          className="flex items-center gap-2.5 text-[var(--primary)] focus-visible:outline-none"
         >
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--accent)] shadow-sm transition-transform group-hover:scale-105">
-            <Award className="h-5 w-5" />
-            <Atom className="absolute -right-1 -bottom-1 h-4 w-4 rounded-full bg-[#0a192f] p-0.5 text-sky-400 ring-2 ring-white" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-extrabold leading-none tracking-tight text-[var(--primary)]">
-              STDSC
-            </span>
-            <span className="mt-0.5 text-[11px] font-medium tracking-wide text-[var(--muted)]">
-              Surulere Teens Debate &amp; STEM
-            </span>
-          </div>
+          <span className="font-display text-xl font-bold tracking-tight text-[var(--primary)]">
+            STDSC
+          </span>
+          <span
+            className="hidden h-4 w-[1px] bg-[var(--border-strong)] sm:inline-block"
+            aria-hidden="true"
+          />
+          <span className="hidden text-xs font-medium text-[var(--muted)] sm:inline">
+            Surulere Debate &amp; STEM
+          </span>
         </Link>
 
+        {/* Compact Desktop Nav with Mega Menu Triggers */}
         <nav
           aria-label="Primary navigation"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-7 md:flex"
         >
-          {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname?.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                  isActive
-                    ? "bg-[var(--secondary)] font-semibold text-[var(--primary)]"
-                    : "text-slate-700 hover:bg-slate-100 hover:text-[var(--primary)]"
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          <Link
+            href="/"
+            aria-current={pathname === "/" ? "page" : undefined}
+            onMouseEnter={() => setActiveMega(null)}
+            className={cn(
+              "relative py-4 text-sm transition-colors",
+              pathname === "/"
+                ? "font-semibold text-[var(--primary)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-[var(--accent)]"
+                : "font-medium text-slate-700 hover:text-[var(--primary)]"
+            )}
+          >
+            Home
+          </Link>
+
+          {/* Mega Menu Trigger 1: Championship */}
+          <button
+            type="button"
+            aria-expanded={activeMega === "championship"}
+            onMouseEnter={() => setActiveMega("championship")}
+            onClick={() =>
+              setActiveMega(activeMega === "championship" ? null : "championship")
+            }
+            className={cn(
+              "relative inline-flex cursor-pointer items-center gap-1 py-4 text-sm transition-colors focus-visible:outline-none",
+              isChampionshipActive || activeMega === "championship"
+                ? "font-semibold text-[var(--primary)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-[var(--accent)]"
+                : "font-medium text-slate-700 hover:text-[var(--primary)]"
+            )}
+          >
+            <span>Championship</span>
+            <ChevronDown
+              className={cn(
+                "h-3.5 w-3.5 transition-transform duration-150",
+                activeMega === "championship" && "rotate-180 text-[var(--accent)]"
+              )}
+            />
+          </button>
+
+          {/* Mega Menu Trigger 2: Participate */}
+          <button
+            type="button"
+            aria-expanded={activeMega === "participate"}
+            onMouseEnter={() => setActiveMega("participate")}
+            onClick={() =>
+              setActiveMega(activeMega === "participate" ? null : "participate")
+            }
+            className={cn(
+              "relative inline-flex cursor-pointer items-center gap-1 py-4 text-sm transition-colors focus-visible:outline-none",
+              isParticipateActive || activeMega === "participate"
+                ? "font-semibold text-[var(--primary)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-[var(--accent)]"
+                : "font-medium text-slate-700 hover:text-[var(--primary)]"
+            )}
+          >
+            <span>Participate</span>
+            <ChevronDown
+              className={cn(
+                "h-3.5 w-3.5 transition-transform duration-150",
+                activeMega === "participate" && "rotate-180 text-[var(--accent)]"
+              )}
+            />
+          </button>
+
+          <Link
+            href="/contact"
+            aria-current={pathname?.startsWith("/contact") ? "page" : undefined}
+            onMouseEnter={() => setActiveMega(null)}
+            className={cn(
+              "relative py-4 text-sm transition-colors",
+              pathname?.startsWith("/contact")
+                ? "font-semibold text-[var(--primary)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-[var(--accent)]"
+                : "font-medium text-slate-700 hover:text-[var(--primary)]"
+            )}
+          >
+            Contact
+          </Link>
         </nav>
 
-        <div className="flex items-center gap-2.5">
-          <Link href="/schools" className="hidden sm:block">
+        {/* Right Action */}
+        <div className="flex items-center gap-2">
+          <Link href="/schools" className="hidden md:block">
             <Button size="sm" variant="default">
-              School Interest
-              <ArrowUpRight className="h-3.5 w-3.5" />
+              Register Interest
             </Button>
           </Link>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
+            className="inline-flex items-center justify-center rounded-md border border-[var(--border)] p-1.5 text-slate-800 hover:bg-[var(--secondary)] md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
             aria-controls="mobile-nav-menu"
             aria-label="Toggle navigation menu"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Desktop Mega Menu Panel */}
+      {activeMega && (
+        <div className="hidden border-t border-[var(--border)] bg-[#faf8f5] shadow-xl md:block">
+          <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+            {activeMega === "championship" && (
+              <div className="grid gap-6 lg:grid-cols-12">
+                {/* 8-Column Architectural Submenu Grid */}
+                <div className="grid grid-cols-2 divide-x divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white lg:col-span-8">
+                  {championshipItems.map((item) => (
+                    <Link
+                      key={item.code}
+                      href={item.href}
+                      onClick={() => setActiveMega(null)}
+                      className="group flex flex-col justify-between p-4 transition-colors hover:bg-[var(--secondary)]/60"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono-tech text-[11px] font-bold text-[var(--primary)]">
+                            {item.code}
+                          </span>
+                          <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--primary)]" />
+                        </div>
+                        <p className="mt-1.5 text-sm font-bold text-slate-900 group-hover:text-[var(--primary)]">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-xs leading-relaxed text-[var(--muted)]">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* 4-Column Featured Spotlight inside Mega Menu */}
+                <div className="flex flex-col justify-between rounded-md border border-[var(--border)] bg-[#071326] p-4 text-white lg:col-span-4">
+                  <div>
+                    <img
+                      src="/images/stem-showcase.jpg"
+                      alt="Students demonstrating a solar robotics prototype to STEM judges"
+                      fetchPriority="low"
+                      width={480}
+                      height={270}
+                      className="aspect-[16/9] w-full rounded-xs object-cover"
+                    />
+                    <p className="font-mono-tech mt-3 text-[10px] font-bold uppercase text-[var(--accent)]">
+                      EXPANDED SCOPE / DEBATE + STEM
+                    </p>
+                    <p className="mt-1 text-sm font-bold text-white">
+                      Three Arenas, One Championship
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-300">
+                      Schools can field squads in Parliamentary Debate, the STEM Olympiad, and the
+                      Innovation Showcase.
+                    </p>
+                  </div>
+                  <Link
+                    href="/format"
+                    onClick={() => setActiveMega(null)}
+                    className="font-mono-tech mt-3 inline-flex items-center gap-1 text-xs font-bold uppercase text-[var(--accent)] hover:underline"
+                  >
+                    View Complete Format Overview →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {activeMega === "participate" && (
+              <div className="grid gap-6 lg:grid-cols-12">
+                {/* 8-Column Architectural Submenu Grid */}
+                <div className="grid grid-cols-2 divide-x divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white lg:col-span-8">
+                  {participateItems.map((item) => (
+                    <Link
+                      key={item.code}
+                      href={item.href}
+                      onClick={() => setActiveMega(null)}
+                      className="group flex flex-col justify-between p-4 transition-colors hover:bg-[var(--secondary)]/60"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono-tech text-[11px] font-bold text-[var(--primary)]">
+                            {item.code}
+                          </span>
+                          <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--primary)]" />
+                        </div>
+                        <p className="mt-1.5 text-sm font-bold text-slate-900 group-hover:text-[var(--primary)]">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-xs leading-relaxed text-[var(--muted)]">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* 4-Column Delegation Action Card */}
+                <div className="flex flex-col justify-between rounded-md border border-[var(--border)] bg-[var(--secondary)] p-5 lg:col-span-4">
+                  <div>
+                    <span className="font-mono-tech text-[10px] font-bold uppercase text-[var(--primary)]">
+                      DELEGATION &amp; PATRONAGE DESK
+                    </span>
+                    <p className="sub-heading mt-1.5 font-bold text-slate-900">
+                      Ready to get your school or organisation involved?
+                    </p>
+                    <p className="mt-2 text-xs leading-relaxed text-[var(--muted)]">
+                      Express interest as a secondary school coordinator, enquire about sponsorship
+                      tiers, or volunteer as an adjudicator or STEM mentor.
+                    </p>
+                  </div>
+                  <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-[var(--border)] pt-3">
+                    <Link href="/contact" onClick={() => setActiveMega(null)}>
+                      <Button size="sm">Contact Desk</Button>
+                    </Link>
+                    <Link
+                      href="/admin"
+                      onClick={() => setActiveMega(null)}
+                      className="font-mono-tech text-xs font-semibold text-[var(--muted)] hover:text-[var(--primary)]"
+                    >
+                      Admin Shell →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Accordion Mega Menu */}
       <div
         id="mobile-nav-menu"
         className={cn(
-          "border-t border-slate-200 bg-white lg:hidden",
-          open ? "block" : "hidden"
+          "border-t border-[var(--border)] bg-[#faf8f5] md:hidden",
+          mobileOpen ? "block" : "hidden"
         )}
       >
         <nav
           aria-label="Mobile navigation"
-          className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4"
+          className="mx-auto flex max-w-6xl flex-col divide-y divide-[var(--border)]/70 px-4 py-3"
         >
-          {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname?.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
+          <Link
+            href="/"
+            className="py-2.5 text-sm font-semibold text-slate-900"
+            onClick={() => setMobileOpen(false)}
+          >
+            Home
+          </Link>
+
+          {/* Mobile Submenu 1: Championship */}
+          <div className="py-2">
+            <button
+              type="button"
+              onClick={() =>
+                setMobileSection(
+                  mobileSection === "championship" ? null : "championship"
+                )
+              }
+              className="flex w-full items-center justify-between py-1.5 text-sm font-semibold text-slate-900"
+            >
+              <span>Championship Tracks</span>
+              <ChevronDown
                 className={cn(
-                  "rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors",
-                  isActive
-                    ? "bg-[var(--secondary)] font-semibold text-[var(--primary)]"
-                    : "text-slate-700 hover:bg-slate-100"
+                  "h-4 w-4 transition-transform",
+                  mobileSection === "championship" && "rotate-180"
                 )}
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <div className="mt-3 flex flex-col gap-2 border-t border-slate-100 pt-3">
-            <Link href="/schools" onClick={() => setOpen(false)}>
+              />
+            </button>
+            {mobileSection === "championship" && (
+              <div className="mt-2 grid gap-2 border-l-2 border-[var(--accent)] pl-3">
+                {championshipItems.map((item) => (
+                  <Link
+                    key={item.code}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="py-1"
+                  >
+                    <span className="font-mono-tech block text-[10px] font-bold text-[var(--primary)]">
+                      {item.code}
+                    </span>
+                    <span className="text-xs font-semibold text-slate-900">
+                      {item.title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Submenu 2: Participate */}
+          <div className="py-2">
+            <button
+              type="button"
+              onClick={() =>
+                setMobileSection(
+                  mobileSection === "participate" ? null : "participate"
+                )
+              }
+              className="flex w-full items-center justify-between py-1.5 text-sm font-semibold text-slate-900"
+            >
+              <span>Participate &amp; Governance</span>
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 transition-transform",
+                  mobileSection === "participate" && "rotate-180"
+                )}
+              />
+            </button>
+            {mobileSection === "participate" && (
+              <div className="mt-2 grid gap-2 border-l-2 border-[var(--accent)] pl-3">
+                {participateItems.map((item) => (
+                  <Link
+                    key={item.code}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="py-1"
+                  >
+                    <span className="font-mono-tech block text-[10px] font-bold text-[var(--primary)]">
+                      {item.code}
+                    </span>
+                    <span className="text-xs font-semibold text-slate-900">
+                      {item.title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link
+            href="/contact"
+            className="py-2.5 text-sm font-semibold text-slate-900"
+            onClick={() => setMobileOpen(false)}
+          >
+            Contact
+          </Link>
+
+          <div className="pt-3 pb-1">
+            <Link href="/schools" onClick={() => setMobileOpen(false)}>
               <Button className="w-full justify-center" size="sm">
                 Register School Interest
-              </Button>
-            </Link>
-            <Link href="/admin" onClick={() => setOpen(false)}>
-              <Button
-                variant="outline"
-                className="w-full justify-center"
-                size="sm"
-              >
-                Admin Dashboard
               </Button>
             </Link>
           </div>

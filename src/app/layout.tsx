@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | STDSC",
   },
   description:
-    "Official website of the Surulere Teens Debate & STEM Championship (STDSC) — empowering secondary school students through competitive debate, STEM Olympiads, applied science innovation showcases, and the Young Leaders Network.",
+    "Official website of the Surulere Teens Debate & STEM Championship (STDSC), empowering secondary school students through competitive debate, STEM Olympiads, applied science innovation showcases, and the Young Leaders Network.",
   keywords: [
     "debate",
     "STEM",

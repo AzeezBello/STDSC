@@ -1,28 +1,29 @@
-# Sponsor Package Outline
+# Sponsor Package Outline — STDSC
 
 > Investment levels and exact benefits will be finalised when scale and costs are confirmed. This is a structural outline only.
 
-## Why Support STDC
+## Why Support STDSC
 
-- Direct investment in youth leadership, critical thinking and communication skills.
-- Visible association with a community-rooted education programme in Surulere.
-- Opportunities for brand presence and employee engagement (where appropriate).
-- Contribution to a measurable programme with safeguarding and impact focus.
+- Direct investment in youth leadership, STEM innovation, critical thinking and communication skills.
+- Visible association with a community-rooted Debate & STEM education programme in Surulere, Lagos.
+- Opportunities for brand presence, technical judging, and employee mentorship engagement (where appropriate).
+- Contribution to a measurable programme with safeguarding, lab safety, and impact focus.
 
 ## Indicative Tiers (placeholders)
 
 | Tier | Focus | Example benefits (to be confirmed) |
 |------|--------|------------------------------------|
-| Title / Presenting | Primary partner | Naming rights, prominent logo placement, speaking opportunity, highest recognition |
-| Gold | Major support | Logo on materials & website, event visibility, social mentions |
-| Silver | Significant support | Logo placement, website listing, selected materials |
+| Title / Presenting | Primary partner | Naming rights, prominent logo placement across Debate & STEM stages, speaking opportunity, highest recognition |
+| Gold | Major Track support | Track co-branding (Debate, STEM Olympiad, or Innovation Showcase), logo on materials & website, event visibility |
+| Silver | Significant support | Logo placement, website listing, selected materials, mentor/judge participation |
 | Bronze / Supporter | Contributing support | Website listing, certificate of appreciation |
 
 ## Additional Opportunities
 
-- In-kind support (venue, printing, professional services, prizes).
-- Workshop or masterclass sponsorship under the Young Leaders Network.
-- Named awards or scholarships (subject to safeguarding and fairness policies).
+- **STEM Kits & Lab Support**: Microcontrollers, robotics kits, calculators, or lab equipment for participating schools.
+- **In-kind support**: Venue, printing, professional services, educational prizes.
+- **Young Leaders Network & STEM Labs**: Sponsoring a coding bootcamp, robotics lab, or debate masterclass.
+- **Named awards or scholarships**: Across Debate, Olympiad, or STEM Innovation categories (subject to safeguarding and fairness policies).
 
 ## Process
 

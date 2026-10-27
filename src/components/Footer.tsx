@@ -1,54 +1,42 @@
 import Link from "next/link";
-import { Award, Atom, Shield, MapPin, Mail, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-[#0a192f] text-slate-300">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-12">
+    <footer className="border-t border-slate-800 bg-[#071326] text-slate-300">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid gap-10 border-b border-slate-800/90 pb-12 md:grid-cols-12">
           {/* Brand column */}
           <div className="space-y-4 md:col-span-5">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)] text-[#0a192f] shadow-sm">
-                <Award className="h-5 w-5" />
-                <Atom className="absolute -right-1 -bottom-1 h-4 w-4 rounded-full bg-sky-500 p-0.5 text-white ring-2 ring-[#0a192f]" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold tracking-tight text-white">
-                  STDSC
-                </h3>
-                <p className="text-xs text-slate-400">
-                  Surulere Teens Debate &amp; STEM Championship
-                </p>
-              </div>
+              <span className="font-display text-2xl font-bold tracking-tight text-white">
+                STDSC
+              </span>
+              <span className="h-5 w-[1.5px] bg-[var(--accent)]" aria-hidden="true" />
+              <span className="font-mono-tech text-xs uppercase tracking-widest text-slate-400">
+                SURULERE, LAGOS
+              </span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-slate-300">
-              Uniting eloquent discourse with scientific inquiry. STDSC empowers
-              secondary school students in Surulere, Lagos through competitive
-              debate, STEM Olympiads, applied innovation showcases, and the
-              Young Leaders Network.
+              Surulere Teens Debate &amp; STEM Championship. An annual academic institution
+              equipping secondary school students in Lagos with rigorous argumentation, quantitative
+              science mastery, and applied engineering skills.
             </p>
-            <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-slate-400">
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 text-[var(--accent)]" />
-                Surulere LGA, Lagos (Venue TBC)
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Mail className="h-3.5 w-3.5 text-[var(--accent)]" />
-                <Link
-                  href="/contact"
-                  className="underline decoration-slate-600 underline-offset-4 hover:text-white"
-                >
-                  Enquiry Form
-                </Link>
-              </span>
-            </div>
+            <p className="font-mono-tech pt-1 text-xs text-slate-400">
+              HOST AREA: SURULERE LGA (VENUE TBC) /{" "}
+              <Link
+                href="/contact"
+                className="text-[var(--accent)] underline underline-offset-4 hover:text-white"
+              >
+                ENQUIRY DESK
+              </Link>
+            </p>
           </div>
 
-          {/* Explore */}
+          {/* 01 Tracks */}
           <div className="md:col-span-3">
-            <h4 className="mb-3.5 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-              Championship Tracks
+            <h4 className="editorial-kicker mb-4 text-[var(--accent)]">
+              01 / Championship Tracks
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -86,10 +74,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Partners */}
+          {/* 02 Participate */}
           <div className="md:col-span-2">
-            <h4 className="mb-3.5 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-              Participate
+            <h4 className="editorial-kicker mb-4 text-[var(--accent)]">
+              02 / Delegations
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -128,10 +116,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Safeguarding & Legal */}
+          {/* 03 Governance */}
           <div className="md:col-span-2">
-            <h4 className="mb-3.5 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-              Governance
+            <h4 className="editorial-kicker mb-4 text-[var(--accent)]">
+              03 / Governance
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -152,6 +140,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/policies#stem-safety"
+                  className="text-slate-300 transition-colors hover:text-white"
+                >
+                  STEM Lab Safety
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/policies#conduct"
                   className="text-slate-300 transition-colors hover:text-white"
                 >
@@ -162,35 +158,31 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Safeguarding callout bar */}
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-xl border border-slate-800 bg-slate-900/70 p-4 sm:flex-row sm:items-center">
-          <div className="flex items-start gap-3">
-            <Shield className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" />
-            <p className="text-xs leading-relaxed text-slate-300">
-              <strong className="text-white">
-                Child Safeguarding, Lab Safety &amp; Data Protection:
-              </strong>{" "}
-              Student personal records are never displayed publicly. Live team and project
-              registration remains gated until authentication, role-based access control, and
-              formal safeguarding policies are approved.
-            </p>
-          </div>
+        {/* Safeguarding ledger bar */}
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-b border-slate-800/80 pb-8 sm:flex-row sm:items-center">
+          <p className="max-w-3xl text-xs leading-relaxed text-slate-300">
+            <strong className="font-mono-tech uppercase text-[var(--accent)]">
+              Safeguarding &amp; Privacy Covenant:
+            </strong>{" "}
+            Student personal records are never displayed on public pages. Production team and
+            project registration remains gated until authentication, role-based access control, and
+            formal safeguarding policies are approved.
+          </p>
           <Link
             href="/policies"
-            className="shrink-0 text-xs font-semibold text-[var(--accent)] hover:underline"
+            className="font-mono-tech shrink-0 text-xs font-semibold uppercase text-[var(--accent)] hover:underline"
           >
-            Review policies →
+            Read Policy Summaries →
           </Link>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-slate-800/80 pt-6 text-xs text-slate-400 sm:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-between gap-2 text-xs text-slate-400 sm:flex-row">
           <p>
             © {new Date().getFullYear()} Surulere Teens Debate &amp; STEM Championship (STDSC). All
             rights reserved.
           </p>
-          <p>
-            Dates, venue, and confirmed partners are marked as placeholders until formally
-            announced.
+          <p className="font-mono-tech text-[11px]">
+            STATUS: DATES, VENUE &amp; PARTNERS MARKED AS PLACEHOLDERS UNTIL CONFIRMED
           </p>
         </div>
       </div>

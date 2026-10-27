@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Shield, Lock, Scale, FileCheck, FlaskConical, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Policies, Safeguarding & Lab Safety",
@@ -8,18 +7,15 @@ export const metadata: Metadata = {
 export default function PoliciesPage() {
   return (
     <div>
-      {/* Page Hero */}
-      <section className="hero-surface relative overflow-hidden text-white">
-        <div className="subtle-grid-pattern absolute inset-0 opacity-60 pointer-events-none" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
+      {/* Editorial Hero */}
+      <section className="hero-surface relative overflow-hidden border-b border-white/15 text-white">
+        <div className="subtle-grid-pattern pointer-events-none absolute inset-0 opacity-60" />
+        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
-              Governance, Safety &amp; Trust
-            </p>
-            <h1 className="section-heading mt-2 font-extrabold tracking-tight text-white">
+            <h1 className="hero-heading font-bold text-white">
               Policies, Child Safeguarding &amp; Data Privacy
             </h1>
-            <p className="prose-measure mt-4 text-base leading-relaxed text-slate-200 sm:text-lg">
+            <p className="prose-measure mt-5 text-base leading-relaxed text-slate-200 sm:text-lg">
               The Surulere Teens Debate &amp; STEM Championship (STDSC) is committed to the safety,
               dignity, laboratory security, and data privacy of every student participant.
             </p>
@@ -27,31 +23,28 @@ export default function PoliciesPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl space-y-10 px-4 py-14 sm:px-6 lg:py-18">
-        <div className="grid gap-8 md:grid-cols-2">
+      <div className="mx-auto max-w-6xl space-y-12 px-4 py-16 sm:px-6 lg:py-24">
+        <div className="grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white md:grid-cols-2 md:divide-x md:divide-y-0">
           {/* Safeguarding */}
-          <section
-            id="safeguarding"
-            className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--secondary)] text-[var(--primary)]">
-                <Shield className="h-5 w-5" />
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">
-                Safeguarding Policy (Summary)
-              </h2>
-            </div>
-            <ul className="mt-5 space-y-3 text-sm text-slate-700">
+          <section id="safeguarding" className="scroll-mt-24 p-6 sm:p-10">
+            <span className="editorial-kicker text-[var(--primary)]">
+              POL-01 / CHILD PROTECTION
+            </span>
+            <h2 className="sub-heading mt-2 font-bold text-slate-900">
+              Safeguarding Policy (Summary)
+            </h2>
+            <ul className="mt-5 divide-y divide-[var(--border)] text-sm text-slate-700">
               {[
                 "All adults working with participants (organisers, adjudicators, STEM judges, mentors, and volunteers) must adhere to a binding Code of Conduct.",
                 "Appropriate adult supervision ratios and school-chaperone requirements are maintained at all in-person events and STEM workshops.",
                 "Concerns about the welfare of any young person are escalated immediately through a defined safeguarding reporting pathway.",
                 "Physical, emotional, laboratory, and online safety are treated with equal seriousness.",
                 "A full written Safeguarding Policy will be published and reviewed regularly before live operations.",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
+              ].map((item, idx) => (
+                <li key={item} className="flex items-baseline gap-3 py-3">
+                  <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
+                    0{idx + 1}.
+                  </span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -59,49 +52,45 @@ export default function PoliciesPage() {
           </section>
 
           {/* Privacy Notice */}
-          <section
-            id="privacy"
-            className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--secondary)] text-[var(--primary)]">
-                <Lock className="h-5 w-5" />
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Privacy Notice (Summary)</h2>
-            </div>
-            <ul className="mt-5 space-y-3 text-sm text-slate-700">
+          <section id="privacy" className="scroll-mt-24 p-6 sm:p-10">
+            <span className="editorial-kicker text-[var(--stem-teal)]">
+              POL-02 / DATA PROTECTION
+            </span>
+            <h2 className="sub-heading mt-2 font-bold text-slate-900">
+              Privacy Notice (Summary)
+            </h2>
+            <ul className="mt-5 divide-y divide-[var(--border)] text-sm text-slate-700">
               {[
                 "We collect only the personal data strictly necessary to administer the championship, STEM showcase, and related programmes.",
                 "Student personal records are never displayed on public pages of this website.",
                 "Access to student and school application data is restricted to authenticated administrators with role-based access control.",
                 "Data is stored and processed in accordance with applicable Nigerian data-protection principles (NDPA) and best practice.",
                 "Parents and guardians hold full rights regarding the data of minors; designated contact pathways for data requests will be published.",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
+              ].map((item, idx) => (
+                <li key={item} className="flex items-baseline gap-3 py-3">
+                  <span className="font-mono-tech text-xs font-bold text-[var(--stem-teal)]">
+                    0{idx + 1}.
+                  </span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-5 rounded-xl bg-slate-100 p-3.5 text-xs font-semibold text-slate-900">
+            <div className="mt-6 rounded-xs border border-[var(--border)] bg-[var(--secondary)] p-4 text-xs font-semibold text-slate-900">
               Production student registration remains disabled until authentication, RBAC, and
               formal privacy documentation are fully implemented.
             </div>
           </section>
+        </div>
 
-          {/* STEM Prototype & Lab Safety */}
-          <section
-            id="stem-safety"
-            className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-800">
-                <FlaskConical className="h-5 w-5" />
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">
-                STEM Showcase Safety &amp; Academic Integrity
-              </h2>
-            </div>
+        {/* STEM Safety & Code of Conduct */}
+        <div className="grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white md:grid-cols-2 md:divide-x md:divide-y-0">
+          <section id="stem-safety" className="scroll-mt-24 p-6 sm:p-10">
+            <span className="editorial-kicker text-amber-900">
+              POL-03 / LABORATORY &amp; PROTOTYPE RULES
+            </span>
+            <h2 className="sub-heading mt-2 font-bold text-slate-900">
+              STEM Showcase Safety &amp; Academic Integrity
+            </h2>
             <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
               All entries in the STEM Innovation &amp; Project Showcase must comply with venue
               safety regulations. Hazardous chemicals, unshielded high-voltage wiring, open flames,
@@ -111,17 +100,11 @@ export default function PoliciesPage() {
             </p>
           </section>
 
-          {/* Code of Conduct */}
-          <section
-            id="conduct"
-            className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-900">
-                <Scale className="h-5 w-5" />
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">Code of Conduct</h2>
-            </div>
+          <section id="conduct" className="scroll-mt-24 p-6 sm:p-10">
+            <span className="editorial-kicker text-[var(--primary)]">
+              POL-04 / ETHICAL STANDARDS
+            </span>
+            <h2 className="sub-heading mt-2 font-bold text-slate-900">Code of Conduct</h2>
             <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
               Participants, coaches, adjudicators, STEM judges, and organisers are expected to treat
               one another with respect, debate and compete in good faith, and uphold the integrity
@@ -132,24 +115,24 @@ export default function PoliciesPage() {
         </div>
 
         {/* Document Status */}
-        <section className="rounded-2xl border border-slate-200 bg-[var(--secondary)]/60 p-6 sm:p-8">
-          <div className="flex items-start gap-3">
-            <FileCheck className="mt-0.5 h-6 w-6 shrink-0 text-[var(--primary)]" />
-            <div>
-              <h2 className="text-lg font-bold text-slate-900">Document Approval Status</h2>
-              <p className="prose-measure mt-2 text-sm text-[var(--muted)]">
-                Full versions of the Safeguarding Policy, Privacy Notice, Debate &amp; STEM
-                Competition Rules, Prototype Safety Checklist, and Data Retention Schedule are under
-                preparation. This page will be updated as each document is formally approved.
-              </p>
-            </div>
-          </div>
+        <section className="rounded-md border border-[var(--border)] bg-[var(--secondary)] p-6 sm:p-8">
+          <span className="editorial-kicker text-[var(--primary)]">
+            POL-05 / DOCUMENT APPROVAL SCHEDULE
+          </span>
+          <h2 className="sub-heading mt-2 font-bold text-slate-900">Document Approval Status</h2>
+          <p className="prose-measure mt-2 text-sm leading-relaxed text-[var(--muted)]">
+            Full versions of the Safeguarding Policy, Privacy Notice, Debate &amp; STEM Competition
+            Rules, Prototype Safety Checklist, and Data Retention Schedule are under preparation.
+            This page will be updated as each document is formally approved.
+          </p>
         </section>
 
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-950">
-          <strong>Legal Notice:</strong> These summaries are not a substitute for formal legal
-          documents. Final policies will be reviewed for compliance before any live student data is
-          processed.
+        <div className="rounded-md border border-[var(--border-strong)] bg-white p-6 text-sm text-slate-800">
+          <strong className="font-mono-tech mr-2 text-xs uppercase text-[var(--primary)]">
+            [LEGAL NOTICE]
+          </strong>
+          These summaries are not a substitute for formal legal documents. Final policies will be
+          reviewed for compliance before any live student data is processed.
         </div>
       </div>
     </div>

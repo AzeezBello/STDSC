@@ -1,74 +1,100 @@
-import { Shield, Lock, Database, FileText, Cpu } from "lucide-react";
-
 export default function AdminDashboardPage() {
   return (
     <div>
-      <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+      <div className="flex flex-col justify-between gap-3 border-b border-[var(--border)] pb-6 sm:flex-row sm:items-end">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--primary)]">
-            STDSC Admin Dashboard (Structural Shell)
+          <p className="editorial-kicker text-[var(--primary)]">
+            INTERNAL OPERATIONS / STRUCTURAL SHELL
+          </p>
+          <h1 className="section-heading mt-1 font-bold text-slate-900">
+            STDSC Admin Dashboard
           </h1>
-          <p className="mt-1 text-sm text-[var(--muted)]">
-            Private management area for school applications, Debate motions, STEM Olympiad problem
+          <p className="mt-1.5 text-sm text-[var(--muted)]">
+            Private management shell for school applications, Debate motions, STEM Olympiad problem
             sets, Innovation Showcase submissions, sponsor enquiries, and results.
           </p>
         </div>
-        <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">
-          <Lock className="h-3.5 w-3.5" />
-          Authentication Gate Pending
+        <span className="font-mono-tech inline-flex items-center self-start rounded-xs border border-amber-400 bg-amber-50 px-3 py-1 text-xs font-bold uppercase text-amber-950">
+          STATUS: AUTHENTICATION GATE PENDING
         </span>
       </div>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white sm:grid-cols-2 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
         {[
           {
-            icon: FileText,
+            code: "MOD-01",
             title: "School Delegations & Applications",
-            status: "Gated — Not yet enabled",
-            note: "Manage school coordinator expressions of interest across Debate and STEM tracks. Requires Supabase Auth + RBAC.",
+            status: "Gated (Not Yet Enabled)",
+            note: "Manage school coordinator expressions of interest across Debate and STEM tracks. Requires Supabase Auth and RBAC.",
           },
           {
-            icon: Database,
-            title: "Debate Motions & Event Schedule",
+            code: "MOD-02",
+            title: "Debate Motions & Schedule",
             status: "Placeholder",
-            note: "Publish prepared civic & science/tech policy motions, venue details, and round schedules.",
+            note: "Publish prepared civic and science/tech policy motions, venue details, and round schedules.",
           },
           {
-            icon: Cpu,
-            title: "STEM Olympiad & Innovation Showcase",
+            code: "MOD-03",
+            title: "STEM Olympiad & Showcase",
             status: "Placeholder",
             note: "Manage STEM Quiz syllabi, prototype safety checklists, and technical judging rubrics.",
           },
+        ].map((card) => (
+          <div key={card.code} className="p-6">
+            <div className="flex items-center justify-between">
+              <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
+                {card.code}
+              </span>
+              <span className="font-mono-tech text-[11px] font-semibold uppercase text-amber-800">
+                {card.status}
+              </span>
+            </div>
+            <h2 className="mt-3 text-base font-bold text-slate-900">{card.title}</h2>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--muted)] sm:text-sm">
+              {card.note}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+        {[
           {
-            icon: Shield,
+            code: "MOD-04",
             title: "Sponsor & Partner Enquiries",
             status: "Placeholder",
             note: "Track corporate partnership tiers, STEM lab equipment grants, and workshop sponsorships.",
           },
           {
-            icon: Lock,
+            code: "MOD-05",
             title: "Results & YLN Inductions",
             status: "Placeholder",
             note: "Publish aggregate team standings and manage Young Leaders Network & STEM Lab cohort invitations.",
           },
         ].map((card) => (
-          <div
-            key={card.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
-          >
-            <card.icon className="mb-3 h-6 w-6 text-[var(--primary)]" />
-            <h3 className="font-bold text-slate-900">{card.title}</h3>
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
-              {card.status}
+          <div key={card.code} className="p-6">
+            <div className="flex items-center justify-between">
+              <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
+                {card.code}
+              </span>
+              <span className="font-mono-tech text-[11px] font-semibold uppercase text-amber-800">
+                {card.status}
+              </span>
+            </div>
+            <h2 className="mt-3 text-base font-bold text-slate-900">{card.title}</h2>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--muted)] sm:text-sm">
+              {card.note}
             </p>
-            <p className="mt-2.5 text-sm leading-relaxed text-[var(--muted)]">{card.note}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-10 space-y-4 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-950">
-        <h2 className="font-bold">Mandatory Security, Safeguarding &amp; Privacy Gates</h2>
-        <ul className="list-disc space-y-1.5 pl-5">
+      <div className="mt-10 space-y-4 rounded-md border border-[var(--border-strong)] bg-[var(--secondary)] p-6 text-sm text-slate-900">
+        <span className="editorial-kicker text-[var(--primary)]">
+          SECURITY &amp; SAFEGUARDING GATES
+        </span>
+        <h2 className="sub-heading font-bold">Mandatory Pre-Launch Requirements</h2>
+        <ul className="list-disc space-y-1.5 pl-5 text-slate-700">
           <li>
             Authentication (via Supabase Auth or equivalent) must be enforced before any school or
             student application data is stored.
@@ -86,7 +112,7 @@ export default function AdminDashboardPage() {
             Retention Schedule must be approved before live registration opens.
           </li>
         </ul>
-        <p className="pt-1 font-medium">
+        <p className="pt-1 font-medium text-slate-900">
           This dashboard is currently a structural placeholder. No real student data is processed
           here.
         </p>

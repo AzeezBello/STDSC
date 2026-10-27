@@ -1,166 +1,155 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Award,
-  CheckCircle2,
-  Cpu,
-  GraduationCap,
-  Handshake,
-  ShieldCheck,
-  ArrowRight,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sponsors & Partners",
+  title: "Sponsors & Institutional Partners",
 };
 
 export default function SponsorsPage() {
   return (
     <div>
-      {/* Page Hero */}
-      <section className="hero-surface relative overflow-hidden text-white">
-        <div className="subtle-grid-pattern absolute inset-0 opacity-60 pointer-events-none" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-18">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
-                Invest in Youth Excellence
-              </p>
-              <h1 className="section-heading mt-2 font-extrabold tracking-tight text-white">
-                Sponsors &amp; Institutional Partners
-              </h1>
-              <p className="prose-measure mt-4 text-base leading-relaxed text-slate-200 sm:text-lg">
-                The Surulere Teens Debate &amp; STEM Championship (STDSC) partners with forward-looking
-                corporations, technology firms, educational foundations, and civic institutions who
-                believe in youth leadership, scientific literacy, and critical thinking.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/contact">
-                  <Button size="lg" variant="accent">
-                    Enquire About Sponsorship
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="overflow-hidden rounded-2xl border border-white/15 shadow-2xl">
-                <img
-                  src="/images/sponsors-impact.jpg"
-                  alt="Championship gold trophy on a podium with Nigerian secondary school students applauding in the auditorium"
-                  fetchPriority="high"
-                  width={1280}
-                  height={720}
-                  className="aspect-[16/10] w-full object-cover"
-                />
-              </div>
+      {/* Full-Bleed Background Image Hero with Subtle Directional Overlay */}
+      <section className="relative isolate overflow-hidden border-b border-[var(--border)] bg-[#071326] text-white">
+        <img
+          src="/images/sponsors-impact.jpg"
+          alt="Championship gold trophy on a podium with Nigerian secondary school students applauding in the auditorium"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071326]/90 via-[#071326]/75 to-[#071326]/40"
+          aria-hidden="true"
+        />
+        <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 lg:py-26">
+          <div className="max-w-2xl">
+            <h1 className="hero-heading font-bold text-white">
+              Sponsors &amp; Institutional Partners
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-100 sm:text-lg">
+              The Surulere Teens Debate &amp; STEM Championship (STDSC) collaborates with
+              corporations, engineering firms, educational foundations, and civic institutions
+              committed to youth leadership, scientific literacy, and critical thinking in Lagos.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/contact">
+                <Button size="lg" variant="accent">
+                  Enquire About Sponsorship
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-14 sm:px-6 lg:py-18">
-        {/* Why Partner */}
+      <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 sm:px-6 lg:py-24">
+        {/* Strategic Rationale Ledger */}
         <section>
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
-              Strategic Alignment
+            <p className="editorial-kicker text-[var(--primary)]">
+              § 02 / STRATEGIC ALIGNMENT
             </p>
-            <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+            <h2 className="section-heading mt-2 font-bold text-slate-900">
               Why partner with STDSC?
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
             {[
               {
-                icon: Cpu,
+                code: "VAL-01",
                 title: "STEM & Digital Talent Pipeline",
-                desc: "Support practical robotics, software, and science problem-solving among secondary school students in Lagos.",
+                desc: "Support practical robotics, software engineering, and quantitative science problem-solving among secondary school students in Lagos.",
               },
               {
-                icon: GraduationCap,
+                code: "VAL-02",
                 title: "Civic & Leadership Impact",
-                desc: "Champion articulate public discourse, evidence-based reasoning, and ethical technology leadership.",
+                desc: "Champion articulate public discourse, evidence-based reasoning, and ethical technology leadership in Nigerian secondary schools.",
               },
               {
-                icon: Sparkles,
-                title: "High-Trust Brand Visibility",
-                desc: "Prominent recognition across championship stages, STEM showcase booths, school packs, and digital platforms.",
+                code: "VAL-03",
+                title: "Institutional Brand Visibility",
+                desc: "Prominent recognition across debate chambers, STEM showcase booths, school briefing packs, and official digital publications.",
               },
               {
-                icon: ShieldCheck,
+                code: "VAL-04",
                 title: "Safeguarding & Governance First",
-                desc: "Associate with a programme built on rigorous child protection, data privacy, and transparent adjudication.",
+                desc: "Associate with a programme built on rigorous child protection, laboratory safety rules, data privacy, and transparent adjudication.",
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
-              >
-                <item.icon className="h-7 w-7 text-[var(--primary)]" />
-                <h3 className="mt-4 font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.desc}</p>
+              <div key={item.code} className="p-6">
+                <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
+                  {item.code}
+                </span>
+                <h3 className="mt-2.5 text-base font-bold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--muted)] sm:text-sm">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Indicative Sponsorship Tiers */}
+        {/* Indicative Sponsorship Tiers Matrix */}
         <section>
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
-              Partnership Structure (Outline)
+            <p className="editorial-kicker text-[var(--primary)]">
+              § 03 / PARTNERSHIP SCHEDULE (OUTLINE)
             </p>
-            <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+            <h2 className="section-heading mt-2 font-bold text-slate-900">
               Indicative Sponsorship Tiers
             </h2>
-            <p className="prose-measure mt-2 text-sm text-[var(--muted)]">
+            <p className="prose-measure mt-3 text-sm leading-relaxed text-[var(--muted)]">
               Investment levels and exact deliverables will be finalised once event scale and costs
-              are confirmed. Contact us to receive the current Sponsor Package outline or discuss
-              bespoke partnership goals.
+              are confirmed. Contact our team to request the current Sponsor Package outline or
+              discuss custom partnership goals.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
+                code: "TIER 01",
                 tier: "Title / Presenting",
                 focus: "Primary Championship Partner",
                 featured: true,
                 benefits: [
                   "Headline naming rights recognition",
                   "Premier logo placement across all Debate & STEM stages",
-                  "Keynote / award presentation opportunity",
+                  "Keynote & grand finale award presentation",
                   "Flagship Young Leaders Network & STEM Lab integration",
                 ],
               },
               {
+                code: "TIER 02",
                 tier: "Gold Partner",
-                focus: "Major Track or Category Support",
+                focus: "Major Track Co-Sponsor",
                 featured: false,
                 benefits: [
                   "Track co-branding (Debate, STEM Olympiad, or Innovation Showcase)",
                   "Prominent logo on event backdrops & website",
-                  "Exhibition presence & media mentions",
+                  "Exhibition presence & press mentions",
                 ],
               },
               {
+                code: "TIER 03",
                 tier: "Silver Partner",
-                focus: "Significant Programme Support",
+                focus: "Programme Partner",
                 featured: false,
                 benefits: [
                   "Logo placement on official website & selected materials",
                   "Recognition during awards ceremony",
-                  "Opportunity to provide technical judges or mentors",
+                  "Opportunity to nominate technical judges or mentors",
                 ],
               },
               {
+                code: "TIER 04",
                 tier: "Bronze / Supporter",
-                focus: "Contributing Community Partner",
+                focus: "Contributing Partner",
                 featured: false,
                 benefits: [
                   "Official website partner listing",
@@ -171,41 +160,47 @@ export default function SponsorsPage() {
             ].map((pkg) => (
               <div
                 key={pkg.tier}
-                className={`flex flex-col justify-between rounded-2xl border p-6 ${
+                className={`flex flex-col justify-between rounded-md border p-6 ${
                   pkg.featured
-                    ? "border-[var(--primary)] bg-[#0a192f] text-white shadow-lg"
-                    : "border-slate-200 bg-white text-slate-900 shadow-xs"
+                    ? "border-[#071326] bg-[#071326] text-white shadow-lg"
+                    : "border-[var(--border)] bg-white text-slate-900"
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between border-b border-current/15 pb-3">
                     <span
-                      className={`text-xs font-bold uppercase tracking-wider ${
+                      className={`font-mono-tech text-xs font-bold ${
                         pkg.featured ? "text-[var(--accent)]" : "text-[var(--primary)]"
+                      }`}
+                    >
+                      {pkg.code}
+                    </span>
+                    <span
+                      className={`font-mono-tech text-[11px] ${
+                        pkg.featured ? "text-slate-300" : "text-[var(--muted)]"
                       }`}
                     >
                       {pkg.focus}
                     </span>
-                    {pkg.featured && (
-                      <Award className="h-4 w-4 text-[var(--accent)]" />
-                    )}
                   </div>
-                  <h3 className="mt-2 text-xl font-bold">{pkg.tier}</h3>
+                  <h3 className="sub-heading mt-4 font-bold">{pkg.tier}</h3>
                   <p
-                    className={`mt-1 text-xs ${
-                      pkg.featured ? "text-slate-300" : "text-[var(--muted)]"
+                    className={`font-mono-tech mt-1 text-[11px] uppercase ${
+                      pkg.featured ? "text-slate-400" : "text-[var(--muted)]"
                     }`}
                   >
-                    Investment &amp; final scope: <em>To be confirmed</em>
+                    Investment Scope: To Be Confirmed
                   </p>
-                  <ul className="mt-5 space-y-2.5 text-xs">
-                    {pkg.benefits.map((b) => (
-                      <li key={b} className="flex items-start gap-2">
-                        <CheckCircle2
-                          className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${
+                  <ul className="mt-5 space-y-2.5 text-xs leading-relaxed">
+                    {pkg.benefits.map((b, idx) => (
+                      <li key={b} className="flex items-baseline gap-2">
+                        <span
+                          className={`font-mono-tech text-[10px] font-bold ${
                             pkg.featured ? "text-[var(--accent)]" : "text-[var(--primary)]"
                           }`}
-                        />
+                        >
+                          0{idx + 1}.
+                        </span>
                         <span className={pkg.featured ? "text-slate-200" : "text-slate-700"}>
                           {b}
                         </span>
@@ -214,7 +209,7 @@ export default function SponsorsPage() {
                   </ul>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/20">
+                <div className="mt-6 border-t border-current/15 pt-4">
                   <Link href="/contact">
                     <Button
                       variant={pkg.featured ? "accent" : "outline"}
@@ -230,48 +225,56 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/* Additional STEM & In-Kind Support */}
-        <section className="grid gap-8 rounded-2xl border border-slate-200 bg-[var(--secondary-warm)] p-6 sm:p-8 lg:grid-cols-12">
+        {/* Targeted STEM & In-Kind Support */}
+        <section className="grid gap-8 rounded-md border border-[var(--border)] bg-[var(--secondary)] p-6 sm:p-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--primary)]">
-              <Handshake className="h-4 w-4" />
-              <span>Targeted &amp; In-Kind Contributions</span>
-            </div>
-            <h2 className="mt-2 text-2xl font-bold text-slate-900">
-              Additional ways to support Debate &amp; STEM tracks
+            <p className="editorial-kicker text-[var(--primary)]">
+              § 04 / TARGETED &amp; IN-KIND CONTRIBUTIONS
+            </p>
+            <h2 className="sub-heading mt-2 font-bold text-slate-900">
+              Additional ways to back Debate &amp; STEM tracks
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
-                <span>
-                  <strong>STEM Kits &amp; Lab Grants:</strong> Microcontrollers, robotics kits,
-                  scientific calculators, or lab supplies for participating secondary schools.
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
-                <span>
-                  <strong>Young Leaders Network Masterclasses:</strong> Host a coding workshop,
-                  engineering tour, or public-speaking clinic for inducted fellows.
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
-                <span>
-                  <strong>In-Kind Event Support &amp; Named Awards:</strong> Venue hosting, educational
-                  prizes, printed materials, or category awards (subject to safeguarding and
-                  fairness policies).
-                </span>
-              </li>
-            </ul>
+            <dl className="mt-5 space-y-4 text-sm text-slate-700">
+              <div>
+                <dt className="font-bold text-slate-900">01. STEM Kits &amp; School Lab Grants</dt>
+                <dd className="mt-1 text-xs leading-relaxed text-[var(--muted)] sm:text-sm">
+                  Microcontrollers, robotics kits, scientific calculators, or laboratory equipment
+                  for participating secondary schools.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-bold text-slate-900">
+                  02. Young Leaders Network &amp; STEM Lab Hosting
+                </dt>
+                <dd className="mt-1 text-xs leading-relaxed text-[var(--muted)] sm:text-sm">
+                  Host a coding workshop, engineering facility tour, or public-speaking masterclass
+                  for inducted student fellows.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-bold text-slate-900">
+                  03. In-Kind Event Support &amp; Named Category Awards
+                </dt>
+                <dd className="mt-1 text-xs leading-relaxed text-[var(--muted)] sm:text-sm">
+                  Venue hosting, educational prizes, printed materials, or named awards across
+                  Debate, Olympiad, and Innovation categories (subject to safeguarding and fairness
+                  policies).
+                </dd>
+              </div>
+            </dl>
           </div>
 
-          <div className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 lg:col-span-5">
+          <div className="flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-6 lg:col-span-5">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">Current Partners (Placeholder)</h3>
-              <p className="mt-2 text-sm text-[var(--muted)]">
-                Confirmed sponsors and institutional partners will be displayed here with official
-                logos and partner descriptions once formal agreements are executed.
+              <span className="font-mono-tech text-xs font-bold uppercase text-[var(--primary)]">
+                ROSTER STATUS / PLACEHOLDER
+              </span>
+              <h3 className="sub-heading mt-2 font-bold text-slate-900">
+                Confirmed Partners Roster
+              </h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-[var(--muted)]">
+                Confirmed sponsors and institutional partners will be listed here with official
+                emblems and partner citations once formal agreements are executed.
               </p>
             </div>
             <div className="mt-6">
