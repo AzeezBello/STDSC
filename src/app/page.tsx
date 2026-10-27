@@ -49,18 +49,18 @@ export default function HomePage() {
               .
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/schools">
-                <Button size="lg" variant="accent">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <Link href="/schools" className="w-full sm:w-auto">
+                <Button size="lg" variant="accent" className="w-full justify-center sm:w-auto">
                   Register School Interest
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/format">
+              <Link href="/format" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/40 bg-black/25 text-white backdrop-blur-xs hover:bg-white/15"
+                  className="w-full justify-center border-white/40 bg-black/25 text-white backdrop-blur-xs hover:bg-white/15 sm:w-auto"
                 >
                   Explore Format &amp; Tracks
                 </Button>
@@ -141,7 +141,7 @@ export default function HomePage() {
         <div className="grid items-end gap-6 border-b border-[var(--border)] pb-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 02 / PROGRAMME ARCHITECTURE
+              PROGRAMME ARCHITECTURE
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               Three competitive arenas and a year-round laboratory fellowship.
@@ -155,11 +155,11 @@ export default function HomePage() {
         </div>
 
         {/* Asymmetric 12-Column Bento Matrix */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-12">
+        <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-12">
           {/* Track 01: 7 Columns */}
-          <article className="group flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-6 transition-colors hover:border-[var(--primary)] sm:p-8 lg:col-span-7">
+          <article className="bento-card group flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-5 transition-colors hover:border-[var(--primary)] sm:p-8 lg:col-span-7">
             <div>
-              <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] pb-4">
                 <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
                   TRK-01 / PARLIAMENTARY &amp; POLICY CHAMBER
                 </span>
@@ -186,7 +186,7 @@ export default function HomePage() {
                     loading="lazy"
                     width={1280}
                     height={720}
-                    className="aspect-[4/3] w-full rounded-xs border border-[var(--border)] object-cover"
+                    className="aspect-[16/10] sm:aspect-[4/3] w-full rounded-xs border border-[var(--border)] object-cover"
                   />
                 </div>
               </div>
@@ -203,9 +203,9 @@ export default function HomePage() {
           </article>
 
           {/* Track 02: 5 Columns */}
-          <article className="group flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-6 transition-colors hover:border-[var(--stem-teal)] sm:p-8 lg:col-span-5">
+          <article className="bento-card group flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-5 transition-colors hover:border-[var(--stem-teal)] sm:p-8 lg:col-span-5">
             <div>
-              <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] pb-4">
                 <span className="font-mono-tech text-xs font-bold text-[var(--stem-teal)]">
                   TRK-02 / QUANTITATIVE ARENA
                 </span>
@@ -220,7 +220,7 @@ export default function HomePage() {
                 High-tempo analytical qualifiers and live stage buzzer finals testing conceptual
                 mastery in Mathematics, Physics, Chemistry, Biology, and Computing.
               </p>
-              <div className="mt-5 overflow-hidden rounded-xs border border-[var(--border)]">
+              <div className="mt-5 overflow-clip rounded-xs border border-[var(--border)]">
                 <img
                   src="/images/stem-olympiad.jpg"
                   alt="Team of three Nigerian secondary school students solving physics and mathematics problems at an Olympiad buzzer table"
@@ -243,9 +243,9 @@ export default function HomePage() {
           </article>
 
           {/* Track 03: 5 Columns */}
-          <article className="group flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-6 transition-colors hover:border-[var(--accent)] sm:p-8 lg:col-span-5">
+          <article className="bento-card group flex flex-col justify-between rounded-md border border-[var(--border)] bg-white p-5 transition-colors hover:border-[var(--accent)] sm:p-8 lg:col-span-5">
             <div>
-              <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] pb-4">
                 <span className="font-mono-tech text-xs font-bold text-amber-900">
                   TRK-03 / PROTOTYPE EXHIBITION
                 </span>
@@ -260,7 +260,7 @@ export default function HomePage() {
                 Student teams design, build, and defend working hardware or software prototypes
                 addressing urban challenges in Surulere, from solar micro-grids to civic software.
               </p>
-              <div className="mt-5 overflow-hidden rounded-xs border border-[var(--border)]">
+              <div className="mt-5 overflow-clip rounded-xs border border-[var(--border)]">
                 <img
                   src="/images/stem-showcase.jpg"
                   alt="Secondary school team presenting a solar-powered agriculture robot prototype to STEM judges"
@@ -283,9 +283,9 @@ export default function HomePage() {
           </article>
 
           {/* Track 04: 7 Columns */}
-          <article className="group flex flex-col justify-between rounded-md border border-[var(--border)] bg-[var(--secondary)] p-6 transition-colors hover:border-[var(--primary)] sm:p-8 lg:col-span-7">
+          <article className="bento-card group flex flex-col justify-between rounded-md border border-[var(--border)] bg-[var(--secondary)] p-5 transition-colors hover:border-[var(--primary)] sm:p-8 lg:col-span-7">
             <div>
-              <div className="flex items-center justify-between border-b border-[var(--border-strong)] pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-strong)] pb-4">
                 <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
                   FELLOWSHIP / POST-CHAMPIONSHIP PIPELINE
                 </span>
@@ -312,7 +312,7 @@ export default function HomePage() {
                     loading="lazy"
                     width={1280}
                     height={720}
-                    className="aspect-[4/3] w-full rounded-xs border border-[var(--border)] object-cover"
+                    className="aspect-[16/10] sm:aspect-[4/3] w-full rounded-xs border border-[var(--border)] object-cover"
                   />
                 </div>
               </div>
@@ -336,7 +336,7 @@ export default function HomePage() {
           <div className="grid items-start gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="editorial-kicker text-[var(--primary)]">
-                § 03 / SECONDARY SCHOOL DELEGATIONS
+                SECONDARY SCHOOL DELEGATIONS
               </p>
               <h2 className="section-heading mt-2 font-bold text-slate-900">
                 Built around school coordinators and academic coaches.
@@ -427,7 +427,7 @@ export default function HomePage() {
         <div className="grid items-center gap-10 rounded-md border border-[var(--border)] bg-[#071326] p-6 text-white sm:p-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="editorial-kicker text-[var(--accent)]">
-              § 04 / INSTITUTIONAL PATRONAGE
+              INSTITUTIONAL PATRONAGE
             </p>
             <h2 className="section-heading mt-2 font-bold text-white">
               Partner with STDSC to invest in youth intellect and STEM capability.

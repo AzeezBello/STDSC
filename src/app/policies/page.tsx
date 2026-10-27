@@ -7,15 +7,26 @@ export const metadata: Metadata = {
 export default function PoliciesPage() {
   return (
     <div>
-      {/* Editorial Hero */}
-      <section className="hero-surface relative overflow-hidden border-b border-white/15 text-white">
-        <div className="subtle-grid-pattern pointer-events-none absolute inset-0 opacity-60" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
+      {/* Full-Bleed Background Image Hero with Subtle Directional Overlay */}
+      <section className="relative isolate overflow-hidden border-b border-[var(--border)] bg-[#071326] text-white">
+        <img
+          src="/images/schools-team.jpg"
+          alt="Faculty coordinator supervising secondary school students in a Lagos school library"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071326]/90 via-[#071326]/80 to-[#071326]/45"
+          aria-hidden="true"
+        />
+        <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 lg:py-24">
           <div className="max-w-3xl">
             <h1 className="hero-heading font-bold text-white">
               Policies, Child Safeguarding &amp; Data Privacy
             </h1>
-            <p className="prose-measure mt-5 text-base leading-relaxed text-slate-200 sm:text-lg">
+            <p className="prose-measure mt-5 text-base leading-relaxed text-slate-100 sm:text-lg">
               The Surulere Teens Debate &amp; STEM Championship (STDSC) is committed to the safety,
               dignity, laboratory security, and data privacy of every student participant.
             </p>

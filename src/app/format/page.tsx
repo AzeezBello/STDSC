@@ -10,15 +10,26 @@ export const metadata: Metadata = {
 export default function FormatPage() {
   return (
     <div>
-      {/* Editorial Header */}
-      <section className="hero-surface relative overflow-hidden border-b border-white/15 text-white">
-        <div className="subtle-grid-pattern pointer-events-none absolute inset-0 opacity-60" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
+      {/* Full-Bleed Background Image Hero with Subtle Directional Overlay */}
+      <section className="relative isolate overflow-hidden border-b border-[var(--border)] bg-[#071326] text-white">
+        <img
+          src="/images/format-adjudication.jpg"
+          alt="Nigerian secondary school debater speaking before a three-member adjudication panel"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071326]/90 via-[#071326]/75 to-[#071326]/40"
+          aria-hidden="true"
+        />
+        <div className="mx-auto max-w-6xl px-4 py-18 sm:px-6 lg:py-26">
           <div className="max-w-3xl">
             <h1 className="hero-heading font-bold text-white">
               Debate &amp; STEM Championship Format
             </h1>
-            <p className="prose-measure mt-5 text-base leading-relaxed text-slate-200 sm:text-lg">
+            <p className="prose-measure mt-5 text-base leading-relaxed text-slate-100 sm:text-lg">
               The Surulere Teens Debate &amp; STEM Championship (STDSC) is structured across three
               complementary competitive arenas: Parliamentary &amp; Policy Debate, the STEM Quiz
               &amp; Olympiad, and the Applied STEM Innovation Showcase.
@@ -27,20 +38,18 @@ export default function FormatPage() {
             {/* Architectural Anchor Index */}
             <nav
               aria-label="Section index"
-              className="mt-8 grid grid-cols-2 border border-white/20 bg-[#071326]/80 sm:grid-cols-4"
+              className="mt-8 grid grid-cols-2 gap-px overflow-clip rounded-xs border border-white/25 bg-white/20 sm:grid-cols-4"
             >
               {[
                 { href: "#debate", code: "TRK-01", label: "Debate & Tech Policy" },
                 { href: "#olympiad", code: "TRK-02", label: "STEM Quiz & Olympiad" },
                 { href: "#showcase", code: "TRK-03", label: "Innovation Showcase" },
                 { href: "#governance", code: "GOV-04", label: "Judging & Rules" },
-              ].map((tab, idx) => (
+              ].map((tab) => (
                 <a
                   key={tab.href}
                   href={tab.href}
-                  className={`p-3.5 transition-colors hover:bg-white/10 ${
-                    idx !== 0 ? "border-l border-white/15" : ""
-                  }`}
+                  className="bg-[#071326]/90 p-3.5 transition-colors hover:bg-[#0d213f]"
                 >
                   <span className="font-mono-tech block text-[10px] font-bold text-[var(--accent)]">
                     {tab.code}

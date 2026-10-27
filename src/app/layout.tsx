@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col antialiased">
+      <body className="min-h-dvh flex flex-col antialiased overflow-x-clip">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -51,14 +51,14 @@ export default function SponsorsPage() {
         <section>
           <div className="max-w-3xl">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 02 / STRATEGIC ALIGNMENT
+              STRATEGIC ALIGNMENT
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               Why partner with STDSC?
             </h2>
           </div>
 
-          <div className="mt-10 grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+          <div className="hairline-grid mt-10 grid overflow-clip rounded-md border border-[var(--border)] sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 code: "VAL-01",
@@ -81,7 +81,7 @@ export default function SponsorsPage() {
                 desc: "Associate with a programme built on rigorous child protection, laboratory safety rules, data privacy, and transparent adjudication.",
               },
             ].map((item) => (
-              <div key={item.code} className="p-6">
+              <div key={item.code} className="bg-white p-6">
                 <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
                   {item.code}
                 </span>
@@ -98,7 +98,7 @@ export default function SponsorsPage() {
         <section>
           <div className="max-w-3xl">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 03 / PARTNERSHIP SCHEDULE (OUTLINE)
+              PARTNERSHIP SCHEDULE (OUTLINE)
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               Indicative Sponsorship Tiers
@@ -229,7 +229,7 @@ export default function SponsorsPage() {
         <section className="grid gap-8 rounded-md border border-[var(--border)] bg-[var(--secondary)] p-6 sm:p-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 04 / TARGETED &amp; IN-KIND CONTRIBUTIONS
+              TARGETED &amp; IN-KIND CONTRIBUTIONS
             </p>
             <h2 className="sub-heading mt-2 font-bold text-slate-900">
               Additional ways to back Debate &amp; STEM tracks

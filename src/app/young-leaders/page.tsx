@@ -51,7 +51,7 @@ export default function YoungLeadersPage() {
         <section>
           <div className="max-w-3xl">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 02 / FELLOWSHIP CURRICULUM
+              FELLOWSHIP CURRICULUM
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               Four pillars of post-championship development.
@@ -62,7 +62,7 @@ export default function YoungLeadersPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+          <div className="hairline-grid mt-10 grid overflow-clip rounded-md border border-[var(--border)] sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 code: "LAB-01",
@@ -85,7 +85,7 @@ export default function YoungLeadersPage() {
                 desc: "Opportunities to incubate community projects, access curated academic resources, and support future STDSC editions.",
               },
             ].map((item) => (
-              <div key={item.code} className="p-6">
+              <div key={item.code} className="bg-white p-6">
                 <span className="font-mono-tech text-xs font-bold text-[var(--primary)]">
                   {item.code}
                 </span>
@@ -102,7 +102,7 @@ export default function YoungLeadersPage() {
         <section className="grid items-center gap-10 rounded-md border border-[var(--border)] bg-[var(--secondary)] p-6 sm:p-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 03 / INDUCTION &amp; CONTINUATION
+              INDUCTION &amp; CONTINUATION
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               Selection, safeguarding, and prototype incubation.

@@ -219,13 +219,13 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md border border-[var(--border)] p-1.5 text-slate-800 hover:bg-[var(--secondary)] md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border)] text-slate-800 hover:bg-[var(--secondary)] md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav-menu"
             aria-label="Toggle navigation menu"
           >
-            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -237,13 +237,13 @@ export function Header() {
             {activeMega === "championship" && (
               <div className="grid gap-6 lg:grid-cols-12">
                 {/* 8-Column Architectural Submenu Grid */}
-                <div className="grid grid-cols-2 divide-x divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white lg:col-span-8">
+                <div className="hairline-grid grid grid-cols-2 overflow-clip rounded-md border border-[var(--border)] lg:col-span-8">
                   {championshipItems.map((item) => (
                     <Link
                       key={item.code}
                       href={item.href}
                       onClick={() => setActiveMega(null)}
-                      className="group flex flex-col justify-between p-4 transition-colors hover:bg-[var(--secondary)]/60"
+                      className="group flex flex-col justify-between bg-white p-4 transition-colors hover:bg-[var(--secondary)]"
                     >
                       <div>
                         <div className="flex items-center justify-between">
@@ -299,13 +299,13 @@ export function Header() {
             {activeMega === "participate" && (
               <div className="grid gap-6 lg:grid-cols-12">
                 {/* 8-Column Architectural Submenu Grid */}
-                <div className="grid grid-cols-2 divide-x divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white lg:col-span-8">
+                <div className="hairline-grid grid grid-cols-2 overflow-clip rounded-md border border-[var(--border)] lg:col-span-8">
                   {participateItems.map((item) => (
                     <Link
                       key={item.code}
                       href={item.href}
                       onClick={() => setActiveMega(null)}
-                      className="group flex flex-col justify-between p-4 transition-colors hover:bg-[var(--secondary)]/60"
+                      className="group flex flex-col justify-between bg-white p-4 transition-colors hover:bg-[var(--secondary)]"
                     >
                       <div>
                         <div className="flex items-center justify-between">
@@ -362,7 +362,7 @@ export function Header() {
       <div
         id="mobile-nav-menu"
         className={cn(
-          "border-t border-[var(--border)] bg-[#faf8f5] md:hidden",
+          "max-h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain border-t border-[var(--border)] bg-[#faf8f5] shadow-lg md:hidden",
           mobileOpen ? "block" : "hidden"
         )}
       >
@@ -372,7 +372,7 @@ export function Header() {
         >
           <Link
             href="/"
-            className="py-2.5 text-sm font-semibold text-slate-900"
+            className="py-3 text-sm font-semibold text-slate-900"
             onClick={() => setMobileOpen(false)}
           >
             Home
@@ -387,7 +387,7 @@ export function Header() {
                   mobileSection === "championship" ? null : "championship"
                 )
               }
-              className="flex w-full items-center justify-between py-1.5 text-sm font-semibold text-slate-900"
+              className="flex w-full items-center justify-between py-2 text-sm font-semibold text-slate-900"
             >
               <span>Championship Tracks</span>
               <ChevronDown
@@ -398,19 +398,22 @@ export function Header() {
               />
             </button>
             {mobileSection === "championship" && (
-              <div className="mt-2 grid gap-2 border-l-2 border-[var(--accent)] pl-3">
+              <div className="mt-1.5 grid gap-1.5 border-l-2 border-[var(--accent)] pl-3 pb-2">
                 {championshipItems.map((item) => (
                   <Link
                     key={item.code}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="py-1"
+                    className="rounded-xs py-1.5 active:bg-[var(--secondary)]"
                   >
                     <span className="font-mono-tech block text-[10px] font-bold text-[var(--primary)]">
                       {item.code}
                     </span>
-                    <span className="text-xs font-semibold text-slate-900">
+                    <span className="block text-xs font-semibold text-slate-900">
                       {item.title}
+                    </span>
+                    <span className="mt-0.5 block text-[11px] leading-snug text-[var(--muted)]">
+                      {item.description}
                     </span>
                   </Link>
                 ))}
@@ -427,7 +430,7 @@ export function Header() {
                   mobileSection === "participate" ? null : "participate"
                 )
               }
-              className="flex w-full items-center justify-between py-1.5 text-sm font-semibold text-slate-900"
+              className="flex w-full items-center justify-between py-2 text-sm font-semibold text-slate-900"
             >
               <span>Participate &amp; Governance</span>
               <ChevronDown
@@ -438,19 +441,22 @@ export function Header() {
               />
             </button>
             {mobileSection === "participate" && (
-              <div className="mt-2 grid gap-2 border-l-2 border-[var(--accent)] pl-3">
+              <div className="mt-1.5 grid gap-1.5 border-l-2 border-[var(--accent)] pl-3 pb-2">
                 {participateItems.map((item) => (
                   <Link
                     key={item.code}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="py-1"
+                    className="rounded-xs py-1.5 active:bg-[var(--secondary)]"
                   >
                     <span className="font-mono-tech block text-[10px] font-bold text-[var(--primary)]">
                       {item.code}
                     </span>
-                    <span className="text-xs font-semibold text-slate-900">
+                    <span className="block text-xs font-semibold text-slate-900">
                       {item.title}
+                    </span>
+                    <span className="mt-0.5 block text-[11px] leading-snug text-[var(--muted)]">
+                      {item.description}
                     </span>
                   </Link>
                 ))}
@@ -460,16 +466,21 @@ export function Header() {
 
           <Link
             href="/contact"
-            className="py-2.5 text-sm font-semibold text-slate-900"
+            className="py-3 text-sm font-semibold text-slate-900"
             onClick={() => setMobileOpen(false)}
           >
             Contact
           </Link>
 
-          <div className="pt-3 pb-1">
+          <div className="flex flex-col gap-2 pt-3 pb-2">
             <Link href="/schools" onClick={() => setMobileOpen(false)}>
               <Button className="w-full justify-center" size="sm">
                 Register School Interest
+              </Button>
+            </Link>
+            <Link href="/admin" onClick={() => setMobileOpen(false)}>
+              <Button variant="outline" className="w-full justify-center" size="sm">
+                Admin Shell
               </Button>
             </Link>
           </div>

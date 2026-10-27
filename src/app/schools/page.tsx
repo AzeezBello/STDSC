@@ -60,7 +60,7 @@ export default function SchoolsPage() {
         <section>
           <div className="max-w-3xl">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 02 / DELEGATION STRUCTURE
+              DELEGATION STRUCTURE
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               Three competitive divisions under one school registration.
@@ -118,14 +118,14 @@ export default function SchoolsPage() {
         <section className="rounded-md border border-[var(--border)] bg-[var(--secondary)] p-6 sm:p-10">
           <div className="max-w-2xl">
             <p className="editorial-kicker text-[var(--primary)]">
-              § 03 / ONBOARDING SEQUENCE
+              ONBOARDING SEQUENCE
             </p>
             <h2 className="section-heading mt-2 font-bold text-slate-900">
               How school coordinators register and prepare.
             </h2>
           </div>
 
-          <div className="mt-8 grid divide-y divide-[var(--border)] rounded-md border border-[var(--border)] bg-white sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+          <div className="hairline-grid mt-8 grid overflow-clip rounded-md border border-[var(--border)] sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 step: "STEP 01",
@@ -148,7 +148,7 @@ export default function SchoolsPage() {
                 desc: "Squads attend orientation clinics, compete at STDSC, and connect with the Young Leaders Network & STEM Labs.",
               },
             ].map((item) => (
-              <div key={item.step} className="p-6">
+              <div key={item.step} className="bg-white p-6">
                 <span className="font-mono-tech text-xs font-bold text-[var(--accent)]">
                   {item.step}
                 </span>
