@@ -12,6 +12,8 @@ This folder contains supporting documentation for the STDC website and programme
 | [COMPETITION_RULES.md](./COMPETITION_RULES.md) | Draft competition rules framework |
 | [BUDGET_FRAMEWORK.md](./BUDGET_FRAMEWORK.md) | High-level budget categories and assumptions |
 | [SPONSOR_PACKAGE.md](./SPONSOR_PACKAGE.md) | Outline of sponsor tiers and benefits |
+| [STDSC_Pitch_Deck.pdf](./STDSC_Pitch_Deck.pdf) | 10-slide widescreen institutional pitch deck PDF |
+| [STDSC_Business_Model_Canvas.pdf](./STDSC_Business_Model_Canvas.pdf) | 2-page widescreen Business Model Canvas & operating flywheel PDF |
 
 ## Technical stack (confirmed direction)
 

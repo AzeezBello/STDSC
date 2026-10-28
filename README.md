@@ -55,6 +55,8 @@ See the [`docs/`](./docs/) folder for:
 - Competition rules framework
 - Budget framework
 - Sponsor package outline
+- Institutional Pitch Deck PDF (`docs/STDSC_Pitch_Deck.pdf` & `public/docs/STDSC_Pitch_Deck.pdf`)
+- Business Model Canvas PDF (`docs/STDSC_Business_Model_Canvas.pdf` & `public/docs/STDSC_Business_Model_Canvas.pdf`)
 
 ## Scripts
 
@@ -64,6 +66,7 @@ See the [`docs/`](./docs/) folder for:
 | `npm run build` | Production build |
 | `npm run start` | Start production server |
 | `npm run lint` | ESLint |
+| `npm run pdf:generate` | Regenerate Pitch Deck & Business Model Canvas PDFs |
 
 ## Licence
 
